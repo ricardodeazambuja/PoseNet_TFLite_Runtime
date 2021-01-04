@@ -3,7 +3,7 @@ setup(
     name="tflite_posenet",
     version="0.1",
     packages=['tflite_posenet'],
-    install_requires=['tflite_runtime', 'pillow', 'numpy'],
+    install_requires=['pillow', 'numpy'],
 
     # metadata to display on PyPI
     author="Ricardo de Azambuja",
