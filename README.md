@@ -10,7 +10,7 @@ The TFLite model that is automatically downloaded by the library can be found [h
 
 ### 1 Cloning
 ```
-$ git clone https://github.com/ricardodeazambuja/YAMSPy.git
+$ git clone https://github.com/ricardodeazambuja/PoseNet_TFLite_Runtime.git
 $ cd YAMSPy
 $ sudo pip3 install .
 ```
