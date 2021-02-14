@@ -130,18 +130,20 @@ class Pose:
 
     return output_dic
 
-  def draw_pose(self, pose, img, threshold=0.5, marker_color='green', color='yellow', marker_size=5, thickness=2):
+  def draw_pose(self, pose, img, scale=(1,1), threshold=0.5, marker_color='green', color='yellow', marker_size=5, thickness=2):
     # assert marker_color in ImageColor.colormap.keys(), "Wrong marker_color name!"
     # assert color in ImageColor.colormap.keys(), "Wrong color name!"
     draw = ImageDraw.Draw(img)
 
     for p1, p2 in Pose.EDGES:
         if (pose[p1]['score'] < threshold) or (pose[p2]['score'] < threshold): continue
-        draw.line((pose[p1]['x'], pose[p1]['y'], pose[p2]['x'], pose[p2]['y']), fill=color, width=thickness)
+        draw.line((pose[p1]['x']*scale[0], pose[p1]['y']*scale[1], 
+                   pose[p2]['x']*scale[0], pose[p2]['y']*scale[1]), fill=color, width=thickness)
 
     for label, keypoint in pose.items():
       if label=='total_score' : break
       if keypoint['score'] < threshold: continue
-      draw.ellipse((int(keypoint['x']-marker_size/2), int(keypoint['y']-marker_size/2), int(keypoint['x']+marker_size/2), int(keypoint['y']+marker_size/2)), fill=marker_color)
+      draw.ellipse((int(keypoint['x']*scale[0]-marker_size/2), int(keypoint['y']*scale[1]-marker_size/2), 
+                    int(keypoint['x']*scale[0]+marker_size/2), int(keypoint['y']*scale[1]+marker_size/2)), fill=marker_color)
       
     return img
