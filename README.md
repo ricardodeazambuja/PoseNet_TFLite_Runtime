@@ -46,3 +46,16 @@ img = pose.draw_pose(output_dict, img,
                         thickness=2)
 ```
 
+If you don't have an image available for testing whether it "works" or not:  
+```
+import numpy as np
+from PIL import Image
+
+from tflite_posenet import Pose
+
+pose = Pose()
+output_dict = pose.calc(Image.fromarray(np.random.rand(257,257,3).astype("uint8")))
+print(output_dict)
+
+```
+
