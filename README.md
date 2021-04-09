@@ -29,6 +29,7 @@ Then [select the proper tflite_runtime version](https://www.tensorflow.org/lite/
 ```
 $ pip3 install https://github.com/google-coral/pycoral/releases/download/release-frogfish/tflite_runtime-2.5.0-cp36-cp36m-linux_x86_64.whl --upgrade
 ```
+*If you are using a Raspberry Pi Zero, [check the info here](https://github.com/ricardodeazambuja/libedgetpu-rpi0/releases/tag/rpi0_tflite_edgetpu).*
 
 ### Usage:
 It expects a RGB image measuring 257x257 pixels, therefore array shape will be (257,257,3).
